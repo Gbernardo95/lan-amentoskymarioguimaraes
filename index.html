@@ -65,10 +65,11 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        linear-gradient(135deg, #B8897A, #D4A574);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                        url('https://i.ibb.co/Zz625wsx/Whats-App-Image-2025-06-09-at-17-45-19.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -79,13 +80,16 @@
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero-content p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
         .cta-button {
@@ -99,11 +103,23 @@
             font-size: 1.1rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid white;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(184, 137, 122, 0.4);
+            box-shadow: 0 10px 30px rgba(184, 137, 122, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* WhatsApp Float Button */
@@ -125,11 +141,24 @@
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
         .whatsapp-float:hover {
             background-color: #20c157;
             transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
 
         /* Sections */
@@ -148,6 +177,19 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: #B8897A;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #B8897A, #D4A574);
+            border-radius: 2px;
         }
 
         /* About Section */
@@ -184,33 +226,11 @@
             border-radius: 15px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             transition: transform 0.3s ease;
-            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
-            min-height: 300px;
             object-fit: cover;
+            height: 400px;
         }
 
         .about-image img:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Image placeholder styling */
-        .image-placeholder {
-            width: 100%;
-            max-width: 500px;
-            height: 300px;
-            background: linear-gradient(135deg, #B8897A, #D4A574);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .image-placeholder:hover {
             transform: translateY(-10px);
         }
 
@@ -232,11 +252,13 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
         .feature-card i {
@@ -251,9 +273,110 @@
             color: #333;
         }
 
+        /* Gallery Section */
+        .gallery {
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Modal for Gallery */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #B8897A;
+        }
+
         /* Specifications */
         .specs {
-            background: #f8f9fa;
+            background: white;
         }
 
         .specs-grid {
@@ -264,20 +387,27 @@
         }
 
         .spec-item {
-            background: white;
+            background: #f8f9fa;
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #B8897A;
+            transition: transform 0.3s ease;
+        }
+
+        .spec-item:hover {
+            transform: translateY(-5px);
         }
 
         .spec-item h4 {
             color: #B8897A;
             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
 
         /* Location Section */
         .location {
-            background: white;
+            background: #f8f9fa;
         }
 
         .location-content {
@@ -302,30 +432,27 @@
             padding: 0.5rem 0;
             display: flex;
             align-items: center;
+            font-size: 1.1rem;
         }
 
         .location-advantages i {
             color: #B8897A;
             margin-right: 1rem;
+            font-size: 1.2rem;
         }
 
-        .location-image {
+        .location-map {
             width: 100%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .location-image img {
-            width: 100%;
             height: 400px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
         }
 
-        .location-image:hover img {
-            transform: scale(1.05);
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* Contact Section */
@@ -338,6 +465,10 @@
             color: white;
         }
 
+        .contact .section-title::after {
+            background: white;
+        }
+
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -346,12 +477,14 @@
 
         .contact-info h3 {
             margin-bottom: 2rem;
+            font-size: 1.8rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
         .contact-item i {
@@ -364,6 +497,7 @@
             padding: 2rem;
             border-radius: 15px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .form-group {
@@ -384,6 +518,7 @@
             border-radius: 5px;
             background: rgba(255,255,255,0.9);
             color: #333;
+            font-size: 1rem;
         }
 
         .form-group textarea {
@@ -400,11 +535,14 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 100%;
         }
 
         .submit-btn:hover {
             background: #f8f9fa;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* Footer */
@@ -425,6 +563,10 @@
                 font-size: 2.5rem;
             }
 
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
             .about-content,
             .location-content,
             .contact-content {
@@ -439,6 +581,34 @@
                 bottom: 20px;
                 right: 20px;
             }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Animation classes */
+        .animate-in {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -451,6 +621,7 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#features">Diferenciais</a></li>
+                <li><a href="#gallery">Galeria</a></li>
                 <li><a href="#specs">Especificações</a></li>
                 <li><a href="#location">Localização</a></li>
                 <li><a href="#contact">Contato</a></li>
@@ -484,14 +655,7 @@
                     <p>Um projeto pensado para oferecer qualidade de vida, com área de lazer completa no rooftop e amenidades exclusivas para toda a família.</p>
                 </div>
                 <div class="about-image">
-                    <div class="image-placeholder" id="building-placeholder">
-                        <div>
-                            <i class="fas fa-building" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
-                            Sky Mário Guimarães<br>
-                            Fachada do Empreendimento
-                        </div>
-                    </div>
-                    <img id="building-image" alt="Sky Mário Guimarães - Fachada do Empreendimento" style="display: none;">
+                    <img src="https://i.ibb.co/9kfdfgpp/Whats-App-Image-2025-06-09-at-16-30-39-1.webp" alt="Sky Mário Guimarães - Fachada do Empreendimento">
                 </div>
             </div>
         </div>
@@ -535,6 +699,50 @@
             </div>
         </div>
     </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeria de Imagens</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('https://i.ibb.co/VRR1T6q/Whats-App-Image-2025-06-09-at-16-30-39.webp')">
+                    <img src="https://i.ibb.co/VRR1T6q/Whats-App-Image-2025-06-09-at-16-30-39.webp" alt="Sky Mário Guimarães - Área de Lazer">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Área de Lazer</h4>
+                            <p>Espaços completos para toda a família</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.ibb.co/9kfdfgpp/Whats-App-Image-2025-06-09-at-16-30-39-1.webp')">
+                    <img src="https://i.ibb.co/9kfdfgpp/Whats-App-Image-2025-06-09-at-16-30-39-1.webp" alt="Sky Mário Guimarães - Fachada">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Fachada do Empreendimento</h4>
+                            <p>Arquitetura moderna e sofisticada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.ibb.co/bjwCGWcL/Whats-App-Image-2025-06-09-at-17-45-20-1.jpg')">
+                    <img src="https://i.ibb.co/bjwCGWcL/Whats-App-Image-2025-06-09-at-17-45-20-1.jpg" alt="Sky Mário Guimarães - Vista Interna">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Vista Interna</h4>
+                            <p>Ambientes amplos e bem planejados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Gallery -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
 
     <!-- Specifications Section -->
     <section id="specs" class="specs">
@@ -596,15 +804,8 @@
                         <li><i class="fas fa-shopping-cart"></i> Comércio e Serviços</li>
                     </ul>
                 </div>
-                <div class="location-image">
-                    <div class="image-placeholder" id="location-placeholder" style="height: 400px;">
-                        <div>
-                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
-                            Vista aérea de Nova Iguaçu<br>
-                            Localização Estratégica
-                        </div>
-                    </div>
-                    <img id="location-image" alt="Vista aérea de Nova Iguaçu - Localização do Sky Mário Guimarães" style="display: none;">
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.2344!2d-43.4520!3d-22.7586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9966b8b7e6c7b1%3A0x8f8f8f8f8f8f8f8f!2sRua%20Dr.%20M%C3%A1rio%20Guimar%C3%A3es%2C%20Nova%20Igua%C3%A7u%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -623,170 +824,10 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
+                        <span>gabriel.bernardo</span>
+                          </div>
+                      <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
                         <span>gabriel.bernardo.rivavendas@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Rua Doutor Mário Guimarães, Nova Iguaçu - RJ</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Segunda a Sábado: 9h às 18h</span>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nome Completo</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" name="message" placeholder="Tenho interesse no Sky Mário Guimarães. Gostaria de mais informações."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Sky Mário Guimarães - Riva Incorporadora. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Improved image loading function
-        async function loadImages() {
-            try {
-                // Try to load building image
-                if (typeof window.fs !== 'undefined' && window.fs.readFile) {
-                    try {
-                        const buildingImageData = await window.fs.readFile('Image 2', { encoding: 'base64' });
-                        const buildingImg = document.getElementById('building-image');
-                        const buildingPlaceholder = document.getElementById('building-placeholder');
+                    
                         
-                        buildingImg.src = `data:image/jpeg;base64,${buildingImageData}`;
-                        buildingImg.style.display = 'block';
-                        buildingPlaceholder.style.display = 'none';
-                    } catch (error) {
-                        console.log('Building image not available, using placeholder');
-                    }
-
-                    try {
-                        // Try to load location image
-                        const locationImageData = await window.fs.readFile('Image 1', { encoding: 'base64' });
-                        const locationImg = document.getElementById('location-image');
-                        const locationPlaceholder = document.getElementById('location-placeholder');
-                        
-                        locationImg.src = `data:image/jpeg;base64,${locationImageData}`;
-                        locationImg.style.display = 'block';
-                        locationPlaceholder.style.display = 'none';
-
-                        // Update hero background with location image
-                        const heroSection = document.querySelector('.hero');
-                        heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(data:image/jpeg;base64,${locationImageData})`;
-                    } catch (error) {
-                        console.log('Location image not available, using placeholder');
-                    }
-                }
-            } catch (error) {
-                console.log('File system not available, using placeholders');
-            }
-        }
-
-        // Load images when page loads
-        window.addEventListener('load', loadImages);
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Form submission handler
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            
-            // Create WhatsApp message
-            const whatsappMessage = `Olá! Tenho interesse no Sky Mário Guimarães.%0A%0ANome: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ATelefone: ${encodeURIComponent(phone)}%0A%0AMensagem: ${encodeURIComponent(message)}`;
-            
-            // Open WhatsApp with the message
-            window.open(`https://wa.me/5521987272247?text=${whatsappMessage}`, '_blank');
-        });
-
-        // Add animation to feature cards
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = `${Math.random() * 0.5}s`;
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe feature cards
-        document.querySelectorAll('.feature-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Add CSS animation class
-        const style = document.createElement('style');
-        style.textContent = `
-            .animate-in {
-                animation: slideInUp 0.6s ease-out forwards;
-            }
-            
-            @keyframes slideInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-</html>
