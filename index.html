@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Mário Guimarães - Seu Novo Lar em Nova Iguaçu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #B8897A;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B8897A;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%234a90e2" width="1200" height="800"/><text x="600" y="400" text-anchor="middle" fill="white" font-size="48">Vista Aérea de Nova Iguaçu</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B8897A, #D4A574);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(184, 137, 122, 0.4);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20c157;
+            transform: scale(1.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #B8897A;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #B8897A;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #B8897A;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Specifications */
+        .specs {
+            background: #f8f9fa;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .spec-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .spec-item h4 {
+            color: #B8897A;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Location Section */
+        .location {
+            background: white;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #B8897A;
+        }
+
+        .location-advantages {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .location-advantages li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .location-advantages i {
+            color: #B8897A;
+            margin-right: 1rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #B8897A, #D4A574);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: white;
+            color: #B8897A;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .location-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Sky Mário Guimarães</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#features">Diferenciais</a></li>
+                <li><a href="#specs">Especificações</a></li>
+                <li><a href="#location">Localização</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5521987272247" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Sky Mário Guimarães</h1>
+            <p>Viva no alto com todo o conforto e sofisticação que você merece. 488 unidades no coração de Nova Iguaçu com vista panorâmica e infraestrutura completa.</p>
+            <a href="#contact" class="cta-button">Agende Sua Visita</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre o Empreendimento</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Riva Incorporadora apresenta</h3>
+                    <p>O Sky Mário Guimarães é um empreendimento inovador que redefine o conceito de morar bem em Nova Iguaçu. Com 488 unidades distribuídas em 2 blocos, oferece apartamentos de 2 e 3 quartos com diferentes tipologias.</p>
+                    <p>Localizado estrategicamente na Rua Doutor Mário Guimarães, no centro de Nova Iguaçu, o empreendimento está próximo a todas as comodidades urbanas, com fácil acesso ao transporte público e principais vias da região.</p>
+                    <p>Um projeto pensado para oferecer qualidade de vida, com área de lazer completa no rooftop e amenidades exclusivas para toda a família.</p>
+                </div>
+                <div class="about-image">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f0f0f0' width='400' height='300'/><text x='200' y='150' text-anchor='middle' fill='%23666' font-size='16'>Fachada do Empreendimento</text></svg>" alt="Sky Mário Guimarães">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Diferenciais</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Rooftop Completo</h3>
+                    <p>Academia, spa, sauna, skybar, winebar, churrasqueiras e muito mais no rooftop com vista panorâmica</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-swimming-pool"></i>
+                    <h3>Área Aquática</h3>
+                    <p>Piscina adulto com deck molhado, piscina infantil e solário para momentos de relaxamento</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Fitness & Bem-estar</h3>
+                    <p>Fitness externo, espaço ioga, bike indoor, spa com salas de massagem e área de repouso</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-child"></i>
+                    <h3>Diversão Família</h3>
+                    <p>Playground, brinquedoteca, play aventura e espaços pensados para toda a família</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-store"></i>
+                    <h3>Comodidades</h3>
+                    <p>Minimercado, central delivery, coworking, bar da piscina e petcare</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Facilidades</h3>
+                    <p>Sala de embarque na garagem e facilities para maior comodidade dos moradores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section id="specs" class="specs">
+        <div class="container">
+            <h2 class="section-title">Especificações Técnicas</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h4>Endereço</h4>
+                    <p>Rua Doutor Mário Guimarães, Lote nº 768<br>Centro - Nova Iguaçu - RJ</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Área do Terreno</h4>
+                    <p>6.192,43m²</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Total de Unidades</h4>
+                    <p>488 apartamentos</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Bloco 1</h4>
+                    <p>• 6 UpGardens 2 qts (78,34m² - 97,79m²)<br>
+                    • 3 UpGardens 3 qts (104m² - 132,54m²)<br>
+                    • 160 Tipo 2 qts (52,87m² - 54,58m²)<br>
+                    • 80 Tipo 3 qts (61,81m²)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Bloco 2</h4>
+                    <p>• 8 UpGardens 2 qts (78,41m² - 97,35m²)<br>
+                    • 3 UpGardens 3 qts (104,07m² - 111,35m²)<br>
+                    • 152 Tipo 2 qts (52,87m² - 54,58m²)<br>
+                    • 76 Tipo 3 qts (61,81m²)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Tipologias</h4>
+                    <p>Apartamentos de 2 e 3 quartos<br>
+                    UpGardens com área privativa ampliada<br>
+                    Unidades tipo otimizadas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <h2 class="section-title">Localização Estratégica</h2>
+            <div class="location-content">
+                <div class="location-text">
+                    <h3>No Coração de Nova Iguaçu</h3>
+                    <p>Localização privilegiada com fácil acesso a todos os pontos importantes da região metropolitana.</p>
+                    
+                    <ul class="location-advantages">
+                        <li><i class="fas fa-map-marker-alt"></i> Centro de Nova Iguaçu</li>
+                        <li><i class="fas fa-train"></i> Próximo à Estação de Trem</li>
+                        <li><i class="fas fa-bus"></i> Rodoviária a 950m</li>
+                        <li><i class="fas fa-building"></i> Próximo à Prefeitura e Fórum</li>
+                        <li><i class="fas fa-road"></i> Acesso Via Dutra</li>
+                        <li><i class="fas fa-plane"></i> Aeroporto Internacional (Galeão)</li>
+                        <li><i class="fas fa-shopping-cart"></i> Comércio e Serviços</li>
+                    </ul>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0897!2d-43.453!3d-22.759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQ1JzMyLjQiUyA0M8KwMjcnMTAuOCJX!5e0!3m2!1spt-BR!2sbr!4v1629123456789!5m2!1spt-BR!2sbr"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>(21) 98727-2247</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>gabriel.bernardo.rivavendas@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rua Doutor Mário Guimarães, Nova Iguaçu - RJ</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Segunda a Sábado: 9h às 18h</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="mailto:gabriel.bernardo.rivavendas@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" placeholder="Tenho interesse no Sky Mário Guimarães. Gostaria de mais informações."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sky Mário Guimarães - Riva Incorporadora. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const message = formData.get('message');
+            
+            const subject = `Interesse no Sky Mário Guimarães - ${name}`;
+            const body = `Nome: ${name}%0D%0AE-mail: ${email}%0D%0ATelefone: ${phone}%0D%0AMensagem: ${message}`;
+            
+            this.action = `mailto:gabriel.bernardo.rivavendas@gmail.com?subject=${subject}&body=${body}`;
+        });
+    </script>
+</body>
+</html>
