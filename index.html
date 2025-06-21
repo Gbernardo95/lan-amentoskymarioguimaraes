@@ -65,7 +65,8 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgACADASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAABQQGBwP/xAAqEAABAwMDAwMEAwAAAAAAAAABAgMEBQYRABIhBzFBE1FhCCIycYGRof/EABYBAQEBAAAAAAAAAAAAAAAAAAQFA//EABoRAQEBAQEBAQAAAAAAAAAAAAABAhEDIRIx/9oADAMBAAIRAxEAPwC7dSar6d6YseSjsSlUaVVKoWX3H7cgpfbRHjpRt37zjpWU3X12j1ulU6bVYsitKTOS1V1Cqwf2hJkuJGE7vSQM/wC8VT/qM6y1OtXJWHKLJ+1b1XmRVuMpBJLcl5ClJGO2xKPhIpnpvrT1Y+ny2Ea1LlkNKl2WGKrJUo4W40zlKjjw4BlI88lPoKKmZu51o0jrHcFz2pKLkGnyJiaxdKUKSmKlQJkMoR8JJzz2GOfOJP1HfUPDqSKpSrYTJnmMhS6FNqNbjpQkpGUKSUoKj8qyT+sYFZ5b/TLqJ1QpMqdBsDqHXIDZ3KlJpUpoJT9zjhITtHwrIrDj6g+tNOmO02p3vq8oQ0KiTJsVlmULiWWXFNlCm0qOSAU5ABxnHPFBr7s+TfNw1KrTJFYruqyzUkNthLlNgOOhRdbJztIKsg8YzxRTu3ujPN4SrunyKbKr60FUtIiOPzFOQ3gMrAyotIUhPfH+6ZXh04d6bWvbdKh3IjUCj6lqfVb05MKS9udedWEoDpTlEtIClZ7Hzj4oqFGtbpR9PNVuipLpdRqUuSPTlyEOxoMkutWMlThWo7cpWQR+tJ+sFbdPqHKbbmx6bQm5UlbSJE5IU+zKLCPadPGNp4Vk8Vy+pVdtl8NVqjhgx0NMp0zNfxmjKd2RdtdBFrWjUmHRJkdmH3ktAkB1GN6eVAg/PKSjsAcijqhHqhLdpTyQ+Qgu7QQM4JxzjGeefrjoE+hJ9WK/h+W2glKc9m5z9cEHmiqHLr9BqFOtv1NuCKqJr6p0YPPA21sjO3KnBtG8HuFE8YGzuO6dF5tfb2sHjJhzfHuDnw3F9xKnBFPbpWGF/2k9kPn/Pk6jQTjjHfGKrLLj9iQakpyB7zcpqjJ+l9hL7Ht5Q3j7jgAg5HBwCKm9RPp+n2vLnVyzJSJkOcPfZdWj1GXfbQsJ9QAhSCPj5I4oJGlVGdE6m12mVqQpa5TLMmF7i3AQ2G/SXscUQcLOcq8kgEYFaT1L6v3XeLkiEvx4MaWhzfKitnaFkuPOJKRhKRww2nP8AQ5PFAtut9PqrQKnOubStGm1uSpubJBWqK4k8svIHt4GcHJPgA8zE+nDrHCh0qNLHo/e63IjtJkKW20pCk5QlIWpKsOIUDlIyOaKCHRcjFzXDKpNOSqNJaefVNTvUta8IQkrfI7nPtjPgg+arLLDdLj32w4+83HcQy/H0r7A3ucCQMdwMgg9ycA+aKKCd3n/5WqP/2Q==');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        linear-gradient(135deg, #B8897A, #D4A574);
             background-size: cover;
             background-position: center;
             display: flex;
@@ -97,6 +98,7 @@
             font-weight: bold;
             font-size: 1.1rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid white;
         }
 
         .cta-button:hover {
@@ -182,9 +184,33 @@
             border-radius: 15px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+            min-height: 300px;
+            object-fit: cover;
         }
 
         .about-image img:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Image placeholder styling */
+        .image-placeholder {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            background: linear-gradient(135deg, #B8897A, #D4A574);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .image-placeholder:hover {
             transform: translateY(-10px);
         }
 
@@ -295,6 +321,7 @@
             height: 400px;
             object-fit: cover;
             transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
         }
 
         .location-image:hover img {
@@ -457,7 +484,14 @@
                     <p>Um projeto pensado para oferecer qualidade de vida, com área de lazer completa no rooftop e amenidades exclusivas para toda a família.</p>
                 </div>
                 <div class="about-image">
-                    <img id="building-image" alt="Sky Mário Guimarães - Fachada do Empreendimento">
+                    <div class="image-placeholder" id="building-placeholder">
+                        <div>
+                            <i class="fas fa-building" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                            Sky Mário Guimarães<br>
+                            Fachada do Empreendimento
+                        </div>
+                    </div>
+                    <img id="building-image" alt="Sky Mário Guimarães - Fachada do Empreendimento" style="display: none;">
                 </div>
             </div>
         </div>
@@ -563,7 +597,14 @@
                     </ul>
                 </div>
                 <div class="location-image">
-                    <img id="location-image" alt="Vista aérea de Nova Iguaçu - Localização do Sky Mário Guimarães">
+                    <div class="image-placeholder" id="location-placeholder" style="height: 400px;">
+                        <div>
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                            Vista aérea de Nova Iguaçu<br>
+                            Localização Estratégica
+                        </div>
+                    </div>
+                    <img id="location-image" alt="Vista aérea de Nova Iguaçu - Localização do Sky Mário Guimarães" style="display: none;">
                 </div>
             </div>
         </div>
@@ -594,7 +635,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form action="mailto:gabriel.bernardo.rivavendas@gmail.com" method="post" enctype="text/plain">
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="name">Nome Completo</label>
                             <input type="text" id="name" name="name" required>
@@ -626,24 +667,42 @@
     </footer>
 
     <script>
-        // Load images from uploaded files
+        // Improved image loading function
         async function loadImages() {
             try {
-                // Load building image (Image 2)
-                const buildingImageData = await window.fs.readFile('Image 2', { encoding: 'base64' });
-                const buildingImg = document.getElementById('building-image');
-                buildingImg.src = `data:image/jpeg;base64,${buildingImageData}`;
+                // Try to load building image
+                if (typeof window.fs !== 'undefined' && window.fs.readFile) {
+                    try {
+                        const buildingImageData = await window.fs.readFile('Image 2', { encoding: 'base64' });
+                        const buildingImg = document.getElementById('building-image');
+                        const buildingPlaceholder = document.getElementById('building-placeholder');
+                        
+                        buildingImg.src = `data:image/jpeg;base64,${buildingImageData}`;
+                        buildingImg.style.display = 'block';
+                        buildingPlaceholder.style.display = 'none';
+                    } catch (error) {
+                        console.log('Building image not available, using placeholder');
+                    }
 
-                // Load location image (Image 1)
-                const locationImageData = await window.fs.readFile('Image 1', { encoding: 'base64' });
-                const locationImg = document.getElementById('location-image');
-                locationImg.src = `data:image/jpeg;base64,${locationImageData}`;
+                    try {
+                        // Try to load location image
+                        const locationImageData = await window.fs.readFile('Image 1', { encoding: 'base64' });
+                        const locationImg = document.getElementById('location-image');
+                        const locationPlaceholder = document.getElementById('location-placeholder');
+                        
+                        locationImg.src = `data:image/jpeg;base64,${locationImageData}`;
+                        locationImg.style.display = 'block';
+                        locationPlaceholder.style.display = 'none';
 
-                // Update hero background with location image
-                const heroSection = document.querySelector('.hero');
-                heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(data:image/jpeg;base64,${locationImageData})`;
+                        // Update hero background with location image
+                        const heroSection = document.querySelector('.hero');
+                        heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(data:image/jpeg;base64,${locationImageData})`;
+                    } catch (error) {
+                        console.log('Location image not available, using placeholder');
+                    }
+                }
             } catch (error) {
-                console.log('Images will be loaded when available');
+                console.log('File system not available, using placeholders');
             }
         }
 
@@ -654,9 +713,12 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -671,4 +733,60 @@
         });
 
         // Form submission handler
-        document.querySelector('
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `Olá! Tenho interesse no Sky Mário Guimarães.%0A%0ANome: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ATelefone: ${encodeURIComponent(phone)}%0A%0AMensagem: ${encodeURIComponent(message)}`;
+            
+            // Open WhatsApp with the message
+            window.open(`https://wa.me/5521987272247?text=${whatsappMessage}`, '_blank');
+        });
+
+        // Add animation to feature cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${Math.random() * 0.5}s`;
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add CSS animation class
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-in {
+                animation: slideInUp 0.6s ease-out forwards;
+            }
+            
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
