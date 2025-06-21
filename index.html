@@ -65,7 +65,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%234a90e2" width="1200" height="800"/><text x="600" y="400" text-anchor="middle" fill="white" font-size="48">Vista Aérea de Nova Iguaçu</text></svg>');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgACADASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAABQQGBwP/xAAqEAABAwMDAwMEAwAAAAAAAAABAgMEBQYRABIhBzFBE1FhCCIycYGRof/EABYBAQEBAAAAAAAAAAAAAAAAAAQFA//EABoRAQEBAQEBAQAAAAAAAAAAAAABAhEDIRIx/9oADAMBAAIRAxEAPwC7dSar6d6YseSjsSlUaVVKoWX3H7cgpfbRHjpRt37zjpWU3X12j1ulU6bVYsitKTOS1V1Cqwf2hJkuJGE7vSQM/wC8VT/qM6y1OtXJWHKLJ+1b1XmRVuMpBJLcl5ClJGO2xKPhIpnpvrT1Y+ny2Ea1LlkNKl2WGKrJUo4W40zlKjjw4BlI88lPoKKmZu51o0jrHcFz2pKLkGnyJiaxdKUKSmKlQJkMoR8JJzz2GOfOJP1HfUPDqSKpSrYTJnmMhS6FNqNbjpQkpGUKSUoKj8qyT+sYFZ5b/TLqJ1QpMqdBsDqHXIDZ3KlJpUpoJT9zjhITtHwrIrDj6g+tNOmO02p3vq8oQ0KiTJsVlmULiWWXFNlCm0qOSAU5ABxnHPFBr7s+TfNw1KrTJFYruqyzUkNthLlNgOOhRdbJztIKsg8YzxRTu3ujPN4SrunyKbKr60FUtIiOPzFOQ3gMrAyotIUhPfH+6ZXh04d6bWvbdKh3IjUCj6lqfVb05MKS9udedWEoDpTlEtIClZ7Hzj4oqFGtbpR9PNVuipLpdRqUuSPTlyEOxoMkutWMlThWo7cpWQR+tJ+sFbdPqHKbbmx6bQm5UlbSJE5IU+zKLCPadPGNp4Vk8Vy+pVdtl8NVqjhgx0NMp0zNfxmjKd2RdtdBFrWjUmHRJkdmH3ktAkB1GN6eVAg/PKSjsAcijqhHqhLdpTyQ+Qgu7QQM4JxzjGeefrjoE+hJ9WK/h+W2glKc9m5z9cEHmiqHLr9BqFOtv1NuCKqJr6p0YPPA21sjO3KnBtG8HuFE8YGzuO6dF5tfb2sHjJhzfHuDnw3F9xKnBFPbpWGF/2k9kPn/Pk6jQTjjHfGKrLLj9iQakpyB7zcpqjJ+l9hL7Ht5Q3j7jgAg5HBwCKm9RPp+n2vLnVyzJSJkOcPfZdWj1GXfbQsJ9QAhSCPj5I4oJGlVGdE6m12mVqQpa5TLMmF7i3AQ2G/SXscUQcLOcq8kgEYFaT1L6v3XeLkiEvx4MaWhzfKitnaFkuPOJKRhKRww2nP8AQ5PFAtut9PqrQKnOubStGm1uSpubJBWqK4k8svIHt4GcHJPgA8zE+nDrHCh0qNLHo/e63IjtJkKW20pCk5QlIWpKsOIUDlIyOaKCHRcjFzXDKpNOSqNJaefVNTvUta8IQkrfI7nPtjPgg+arLLDdLj32w4+83HcQy/H0r7A3ucCQMdwMgg9ycA+aKKCd3n/5WqP/2Q==');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -178,9 +178,14 @@
 
         .about-image img {
             width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: translateY(-10px);
         }
 
         /* Features Section */
@@ -278,12 +283,22 @@
             margin-right: 1rem;
         }
 
-        .map-container {
+        .location-image {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .location-image img {
             width: 100%;
             height: 400px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .location-image:hover img {
+            transform: scale(1.05);
         }
 
         /* Contact Section */
@@ -442,7 +457,7 @@
                     <p>Um projeto pensado para oferecer qualidade de vida, com área de lazer completa no rooftop e amenidades exclusivas para toda a família.</p>
                 </div>
                 <div class="about-image">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f0f0f0' width='400' height='300'/><text x='200' y='150' text-anchor='middle' fill='%23666' font-size='16'>Fachada do Empreendimento</text></svg>" alt="Sky Mário Guimarães">
+                    <img id="building-image" alt="Sky Mário Guimarães - Fachada do Empreendimento">
                 </div>
             </div>
         </div>
@@ -547,15 +562,8 @@
                         <li><i class="fas fa-shopping-cart"></i> Comércio e Serviços</li>
                     </ul>
                 </div>
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0897!2d-43.453!3d-22.759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQ1JzMyLjQiUyA0M8KwMjcnMTAuOCJX!5e0!3m2!1spt-BR!2sbr!4v1629123456789!5m2!1spt-BR!2sbr"
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                <div class="location-image">
+                    <img id="location-image" alt="Vista aérea de Nova Iguaçu - Localização do Sky Mário Guimarães">
                 </div>
             </div>
         </div>
@@ -618,6 +626,30 @@
     </footer>
 
     <script>
+        // Load images from uploaded files
+        async function loadImages() {
+            try {
+                // Load building image (Image 2)
+                const buildingImageData = await window.fs.readFile('Image 2', { encoding: 'base64' });
+                const buildingImg = document.getElementById('building-image');
+                buildingImg.src = `data:image/jpeg;base64,${buildingImageData}`;
+
+                // Load location image (Image 1)
+                const locationImageData = await window.fs.readFile('Image 1', { encoding: 'base64' });
+                const locationImg = document.getElementById('location-image');
+                locationImg.src = `data:image/jpeg;base64,${locationImageData}`;
+
+                // Update hero background with location image
+                const heroSection = document.querySelector('.hero');
+                heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(data:image/jpeg;base64,${locationImageData})`;
+            } catch (error) {
+                console.log('Images will be loaded when available');
+            }
+        }
+
+        // Load images when page loads
+        window.addEventListener('load', loadImages);
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -639,18 +671,4 @@
         });
 
         // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const message = formData.get('message');
-            
-            const subject = `Interesse no Sky Mário Guimarães - ${name}`;
-            const body = `Nome: ${name}%0D%0AE-mail: ${email}%0D%0ATelefone: ${phone}%0D%0AMensagem: ${message}`;
-            
-            this.action = `mailto:gabriel.bernardo.rivavendas@gmail.com?subject=${subject}&body=${body}`;
-        });
-    </script>
-</body>
-</html>
+        document.querySelector('
