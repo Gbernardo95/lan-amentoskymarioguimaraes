@@ -286,68 +286,6 @@
             transform: scale(1.1);
         }
 
-        /* Form Section */
-        .form-section {
-            background: linear-gradient(135deg, #B8897A, #D4A574);
-            color: white;
-            text-align: center;
-        }
-
-        .form-container {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 20px;
-            margin: 0 auto;
-            max-width: 600px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .form-title {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            font-weight: bold;
-        }
-
-        .lead-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .lead-form input {
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1em;
-            background: rgba(255,255,255,0.9);
-            transition: all 0.3s ease;
-        }
-
-        .lead-form input:focus {
-            outline: none;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .lead-form button {
-            background: white;
-            color: #B8897A;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .lead-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255,255,255,0.3);
-        }
-
         /* Specifications */
         .specs {
             background: #f8f9fa;
@@ -544,15 +482,6 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
-
-            .form-container {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-
-            .form-title {
-                font-size: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -566,7 +495,6 @@
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#features">Diferenciais</a></li>
                 <li><a href="#gallery">Galeria</a></li>
-                <li><a href="#form">Interesse</a></li>
                 <li><a href="#specs">Especificações</a></li>
                 <li><a href="#location">Localização</a></li>
                 <li><a href="#contact">Contato</a></li>
@@ -584,7 +512,7 @@
         <div class="hero-content">
             <h1>Sky Mário Guimarães</h1>
             <p>Viva no alto com todo o conforto e sofisticação que você merece. 488 unidades no coração de Nova Iguaçu com vista panorâmica e infraestrutura completa.</p>
-            <a href="#form" class="cta-button">Agende Sua Visita</a>
+            <a href="#contact" class="cta-button">Agende Sua Visita</a>
         </div>
     </section>
 
@@ -659,24 +587,6 @@
                 <div class="gallery-item">
                     <img src="https://i.ibb.co/bjwCGWcL/Whats-App-Image-2025-06-09-at-17-45-20-1.jpg" alt="Sky Mário Guimarães - Vista 2">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Form Section -->
-    <section id="form" class="form-section">
-        <div class="container">
-            <div class="form-container">
-                <h2 class="form-title">SAIBA MAIS SOBRE ESSE LANÇAMENTO NO CENTRO DE NOVA IGUAÇU</h2>
-                <form class="lead-form" action="https://formsubmit.co/gabriel.bernardo.rivavendas@gmail.com" method="POST">
-                    <input type="hidden" name="_next" value="https://gbernardo95.github.io/skymarioguimaraes/agradecimento.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="text" name="nome" required placeholder="Seu nome">
-                    <input type="email" name="email" required placeholder="Seu email">
-                    <input type="tel" name="telefone" required placeholder="Seu telefone">
-                    <button type="submit">Quero ser avisado</button>
-                </form>
             </div>
         </div>
     </section>
@@ -804,5 +714,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">
-                <img src="https://i.i
+            <p>&copy; 2025 Sky Mário Guimarães - Riva Incorporadora. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
